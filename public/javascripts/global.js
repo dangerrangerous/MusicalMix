@@ -1,7 +1,6 @@
 // Userlist data array for filling in info box
 var userListData = [];
 
-// DOM Ready =============================================================
 $(document).ready(function() {
 
     // Populate the user table on initial page load
@@ -15,12 +14,6 @@ $(document).ready(function() {
     // Delete User link click
    	$('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser);
 });
-
-
-
-
-// Functions =============================================================
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Fill table with data
@@ -70,7 +63,7 @@ function showUserInfo(event) {
 
     //Populate Info Box
     $('#userInfoName').text(thisUserObject.fullname);
-    $('#userInfoAge').text(thisUserObject.age);
+    $('#userInfoAge').text(thisUserObject.age); // swapped age for song link. 
     $('#userInfoGender').text(thisUserObject.gender); // I did not originally include this
     $('#userInfoLocation').text(thisUserObject.location);
 
@@ -91,7 +84,7 @@ function addUser(event) {
 	// Check and make sure errorCount's still at zero
 	if(errorCount === 0) {
 
-		// If it isk compile all user info into one object
+		// If it is compile all user info into one object
 		var newUser = {
 			'username': $('#addUser fieldset input#inputUserName').val(),
 			'email': $('#addUser fieldset input#inputUserEmail').val(),
@@ -127,9 +120,10 @@ function addUser(event) {
 		});
 	} else {
 
-		// If errorCount is more than 0, error out
+		// If errorCount is more than 0, error output
 		alert('Please fill in all fields');
 		return false;
+		// consider getting rid of this OR get rid of certain fileds altogether
 	}
 };
 
@@ -143,7 +137,6 @@ function deleteUser(event) {
 
 	// Check and make sure the user confirmed
 	if (confirmation === true) {
-
 		// If confirmed, delete!
 		$.ajax({
 			type: 'DELETE',
@@ -155,10 +148,8 @@ function deleteUser(event) {
 			} else {
 				alert('Error: ' + resonse.msg);
 			}
-
 			// Update the table
 			populateTable();
-
 			});
 	} else {
 			// If they said no to the confirm, do nothing
