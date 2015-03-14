@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1= title
-    p Welcome to our test
+    p Welcome! Add your info and a song!
 
     // Wrapper
     #wrapper
@@ -14,8 +14,8 @@ block content
                 strong Name:
                 |  <span id='userInfoName'></span>
                 br
-                strong Age:
-                |  <span id='userInfoAge'></span>
+                strong Song:
+                |  <span id='userInfoAge'></span> 
                 br
                 strong Location:
                 |  <span id='userInfoLocation'></span>
@@ -26,13 +26,12 @@ block content
         #userList
             table
                 thead
-                    th Username
+                    th Username  
                     th Email
                     th Phone
-                    th Delete?
+                    th Delete
                 tbody
         // /USER LIST
-
         // ADD USER
         h2 Add User
         #addUser
@@ -42,7 +41,7 @@ block content
                 input#inputUserPhone(type='text', placeholder='Phone')
                 br
                 input#inputUserFullname(type='text', placeholder='Full Name')
-                input#inputUserAge(type='text', placeholder='Age')
+                input#inputUserAge(type='text', placeholder='Song')
                 input#inputUserLocation(type='text', placeholder='Location')
                 br
                 button#btnAddUser Add User
